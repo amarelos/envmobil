@@ -1,0 +1,102 @@
+#!/usr/bin/zsh
+banner(){
+echo -e "
+		Ativando Ambiente Testes Mobile
+		by @amarelos"
+}
+
+## Color ##
+red=`tput setaf 1`
+green=`tput setaf 2`
+yellow=`tput setaf 3`
+reset=`tput sgr0`
+###########
+
+banner
+#-p, --path        Especifica o caminho onde a estrutura será armazenada. Padrão: ~/ENVMOBILE
+# Função de uso
+usage() {
+    echo -e "Uso: $(basename "$0") [opções]
+Opções:
+    -q, --quick       Ativa o ambiente virtual sem exibir mensagens.
+    -i, --install     Instala o Frida e baixa os pacotes do frida-server.
+    -d, --download    Faz o download dos pacotes do frida-server sem instalar.
+    -h, --help        Exibe esta mensagem de ajuda.
+
+    Padrão Path: ~/ENVMOBILE
+"
+    exit 1
+}
+
+# Acesso a pasta onde ficará o ambiente
+cd $HOME/MOBILE
+
+
+# If  Normal option 
+if [ $# -eq 0 ]; then
+    virtualenv "Frida-16"
+    source "Frida-16/bin/activate"
+    cd "Frida-16"
+    echo "Ambiente virtual 'Frida-16' ativado."
+    frida_version=$(frida --version)
+    echo $frida_version
+
+elif [ "$1" = "-i" ] && [ "$2" = "-d" ]; then
+    virtualenv "Frida-16"
+    source "Frida-16/bin/activate"
+    cd "Frida-16"
+    echo "Ambiente virtual 'Frida-16' ativado."
+    pip3 install frida-tools
+    frida_version=$(frida --version)
+    cd "Frida-Server" ||  mkdir "Frida-Server" || cd "Frida-Server"
+	download_links=(
+	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-android-arm.tar.xz"
+	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-android-arm64.tar.xz"
+	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-android-x86.tar.xz"
+	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-android-x86_64.tar.xz"
+	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-ios-arm64.tar.xz"
+	    )
+	    # Download dos arquivos
+    for link in "${download_links[@]}"; do
+        wget -P "$frida_server_dir" "$link"
+    done
+
+
+# If  Install option 
+elif [ "$1" = "-i" ]; then
+    virtualenv "Frida-16"
+    source "Frida-16/bin/activate"
+    cd "Frida-16"
+    echo "Ambiente virtual 'Frida-16' ativado."
+    pip3 install frida-tools
+
+# If  Download option 
+elif [ "$1" = "-d" ]; then
+  pwd
+    virtualenv "Frida-16"
+    source "Frida-16/bin/activate"
+    cd "Frida-16"
+    echo "Ambiente virtual 'Frida-16' ativado."
+    frida_version=$(frida --version)
+    cd "Frida-Server" ||  mkdir "Frida-Server" || cd "Frida-Server"
+	download_links=(
+	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-android-arm.tar.xz"
+	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-android-arm64.tar.xz"
+	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-android-x86.tar.xz"
+	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-android-x86_64.tar.xz"
+	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-ios-arm64.tar.xz"
+	    )
+	    # Download dos arquivos
+    for link in "${download_links[@]}"; do
+        wget -P "$frida_server_dir" "$link"
+    done
+
+elif [ "$1" = "-q" ]; then
+  	virtualenv "Frida-16" > /dev/null 2>&1
+	source "Frida-16/bin/activate" > /dev/null 2>&1
+	cd "Frida-16" > /dev/null 2>&1
+else
+  usage
+fi
+
+exec zsh
