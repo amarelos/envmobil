@@ -13,7 +13,7 @@ reset=`tput sgr0`
 ###########
 
 banner
-#-p, --path        Especifica o caminho onde a estrutura será armazenada. Padrão: ~/ENVMOBILE
+
 # Função de uso
 usage() {
     echo -e "Uso: $(basename "$0") [opções]
@@ -29,7 +29,7 @@ Opções:
 }
 
 # Acesso a pasta onde ficará o ambiente
-cd $HOME/MOBILE
+cd $HOME/ENVMOBILE
 
 
 # If  Normal option 
