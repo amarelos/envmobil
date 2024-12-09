@@ -1,7 +1,7 @@
 # envmobil
 
 O envmobil, é uma ferramenta simples com o objetivo de facilitar a preparação do ambiente, para teste mobile. Ele permite instalar o frida, fazer download dos frida-server e acessar o ambiente, evitando que alguma biblioteca impacte na utilização de outra ferramenta.
-OBS: Se faz necessario o uso do Pyhton3.x e o pip ou pip3
+<br>OBS: Se faz necessario o uso do Pyhton3.x e o pip ou pip3
 
 ## Utilização
 
