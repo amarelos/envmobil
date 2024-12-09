@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/bash
 banner(){
 echo -e "
 		Ativando Ambiente Testes Mobile
@@ -42,6 +42,7 @@ if [ $# -eq 0 ]; then
     echo $frida_version
 
 elif [ "$1" = "-i" ] && [ "$2" = "-d" ]; then
+    pip install virtualenv
     virtualenv "Frida-16"
     source "Frida-16/bin/activate"
     cd "Frida-16"
@@ -99,4 +100,4 @@ else
   usage
 fi
 
-exec zsh
+exec bash
