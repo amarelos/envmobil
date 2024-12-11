@@ -56,11 +56,11 @@ elif [ "$1" = "-i" ] && [ "$2" = "-d" ]; then
     frida_version=$(frida --version)
     cd "$HOME/ENVMOBILE/Frida-Server"
 	download_links=(
-	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-android-arm.tar.xz"
-	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-android-arm64.tar.xz"
-	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-android-x86.tar.xz"
-	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-android-x86_64.tar.xz"
-	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-ios-arm64.tar.xz"
+	        "https://github.com/frida/frida/releases/download/$frida_version/frida-server-$frida_version-android-arm.tar.xz"
+	        "https://github.com/frida/frida/releases/download/$frida_version/frida-server-$frida_version-android-arm64.tar.xz"
+	        "https://github.com/frida/frida/releases/download/$frida_version/frida-server-$frida_version-android-x86.tar.xz"
+	        "https://github.com/frida/frida/releases/download/$frida_version/frida-server-$frida_version-android-x86_64.tar.xz"
+	        "https://github.com/frida/frida/releases/download/$frida_version/frida-server-$frida_version-ios-arm64.tar.xz"
 	    )
 	    # Download dos arquivos
     for link in "${download_links[@]}"; do
@@ -86,11 +86,11 @@ elif [ "$1" = "-d" ]; then
     frida_version=$(frida --version)
     cd "$HOME/ENVMOBILE/Frida-Server"
 	download_links=(
-	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-android-arm.tar.xz"
-	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-android-arm64.tar.xz"
-	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-android-x86.tar.xz"
-	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-android-x86_64.tar.xz"
-	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-ios-arm64.tar.xz"
+	        "https://github.com/frida/frida/releases/download/$frida_version/frida-server-$frida_version-android-arm.tar.xz"
+	        "https://github.com/frida/frida/releases/download/$frida_version/frida-server-$frida_version-android-arm64.tar.xz"
+	        "https://github.com/frida/frida/releases/download/$frida_version/frida-server-$frida_version-android-x86.tar.xz"
+	        "https://github.com/frida/frida/releases/download/$frida_version/frida-server-$frida_version-android-x86_64.tar.xz"
+	        "https://github.com/frida/frida/releases/download/$frida_version/frida-server-$frida_version-ios-arm64.tar.xz"
 	    )
 	    # Download dos arquivos
     for link in "${download_links[@]}"; do
