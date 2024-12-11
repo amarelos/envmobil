@@ -28,6 +28,9 @@ Opções:
     exit 1
 }
 
+# Criar estrutura
+mkdir $HOME/ENVMOBILE 2>/dev/null
+mkdir $HOME/ENVMOBILE/Frida-Server 2>/dev/null
 # Acesso a pasta onde ficará o ambiente
 cd $HOME/ENVMOBILE
 
@@ -49,7 +52,7 @@ elif [ "$1" = "-i" ] && [ "$2" = "-d" ]; then
     echo "Ambiente virtual 'Frida-16' ativado."
     pip3 install frida-tools
     frida_version=$(frida --version)
-    cd "Frida-Server" ||  mkdir "Frida-Server" || cd "Frida-Server"
+    cd "Frida-Server"
 	download_links=(
 	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-android-arm.tar.xz"
 	        "https://github.com/frida/frida/releases/download/$frida_version/frida-core-devkit-$frida_version-android-arm64.tar.xz"
