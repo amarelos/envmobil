@@ -31,6 +31,8 @@ Opções:
 # Criar estrutura
 mkdir $HOME/ENVMOBILE 2>/dev/null
 mkdir $HOME/ENVMOBILE/Frida-Server 2>/dev/null
+mkdir $HOME/ENVMOBILE/Frida-16 2>/dev/null
+
 # Acesso a pasta onde ficará o ambiente
 cd $HOME/ENVMOBILE
 
